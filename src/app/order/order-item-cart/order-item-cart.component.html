@@ -1,0 +1,10 @@
+<div *ngIf="item && item.product" class="item-cart">
+    <form [formGroup]="itemUpdateForm">
+        <div class="item-name">{{ item.product.name }}</div>
+        <input type="number" formControlName="quantity" min="1" (ngModelChange)="updateItem()" />
+        <p>{{ item.quantity * item.product.price| currency }}</p>
+    </form>
+    <div class="remove">
+        <button class="btn-remove" (click)="removeItem(item.id)">X</button>
+    </div>
+</div>

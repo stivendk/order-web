@@ -1,0 +1,7 @@
+<div class="order-item">
+    <form [formGroup]="orderItemForm">
+        <label for="quantity">Quantity:</label>
+        <input type="number" formControlName="quantity" id="quantity" [(ngModel)]="quantity" min="1" [max]="maxQuantity" />
+        <button (click)="addToOrder()">Add to Order</button>
+    </form>
+</div>

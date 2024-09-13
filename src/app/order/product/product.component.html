@@ -1,0 +1,17 @@
+<div class="product-catalog">
+    <div class="product-card" *ngFor="let product of products" (click)="goToProductDetail(product.id)"
+        [ngClass]="{ 'disabled': product.stock === 0 }">
+        <div class="product-photo">
+            <img [src]="product.imageUrl" alt="{{product.name}}" />
+        </div>
+        <div class="product-info">
+            <div *ngIf="product.stock !== 0; else outStock">
+                <div class="product-name">{{ product.name }}</div>
+                <div class="product-price">{{ product.price | currency }}</div>
+            </div>
+            <ng-template class="product-name" #outStock>
+                Out of Stock
+            </ng-template>
+        </div>
+    </div>
+</div>
